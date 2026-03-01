@@ -1,0 +1,349 @@
+/* ============================================
+   RUSTIC GARDEN WEDDING INVITATION STYLES
+   Natural, Organic, Bohemian Elegance
+   Perfect for outdoor & garden weddings
+   ============================================ */
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        background-color: #FAF3E0;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}
+
+/* ============================================
+   BOTANICAL PARALLAX EFFECTS
+   ============================================ */
+
+.botanical-parallax {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.leaf, .flower {
+    position: absolute;
+    opacity: 0.15;
+    animation: float 20s ease-in-out infinite;
+}
+
+.leaf-1 { top: 10%; left: 5%; font-size: 2rem; animation-delay: 0s; }
+.leaf-2 { top: 60%; left: 90%; font-size: 1.5rem; animation-delay: 2s; }
+.leaf-3 { top: 80%; left: 15%; font-size: 1.8rem; animation-delay: 4s; }
+.flower-1 { top: 30%; left: 85%; font-size: 1.5rem; animation-delay: 1s; }
+.flower-2 { top: 70%; left: 80%; font-size: 1.3rem; animation-delay: 3s; }
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-30px) rotate(10deg);
+    }
+}
+
+/* ============================================
+   FLORAL DECORATIONS
+   ============================================ */
+
+.floral-decoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.floral-decoration.top-decoration {
+    margin-bottom: 2rem;
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+
+.gs_reveal {
+    opacity: 0;
+    visibility: hidden;
+    will-change: transform, opacity;
+}
+
+/* ============================================
+   POLAROID CARD STYLE
+   ============================================ */
+
+.polaroid-card {
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
+}
+
+.polaroid-card:hover {
+    transform: rotate(-2deg) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.polaroid-frame {
+    background: white;
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.polaroid-photo {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-radius: 2px;
+}
+
+.polaroid-photo img {
+    transition: transform 0.8s ease;
+}
+
+.polaroid-card:hover .polaroid-photo img {
+    transform: scale(1.05);
+}
+
+.polaroid-caption {
+    text-align: center;
+    padding-top: 1rem;
+    background: #FFFBF0;
+    border-radius: 0 0 4px 4px;
+}
+
+/* ============================================
+   GARDEN SIGN CARDS
+   ============================================ */
+
+.garden-sign-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 2px solid transparent;
+}
+
+.garden-sign-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+    border-color: #9CAF88;
+}
+
+/* ============================================
+   NOTEBOOK PAPER EFFECT
+   ============================================ */
+
+.notebook-paper {
+    position: relative;
+    background-image: 
+        linear-gradient(#9CAF88 1px, transparent 1px),
+        linear-gradient(90deg, #9CAF88 1px, transparent 1px);
+    background-size: 2rem 2rem;
+    background-position: 0 2rem;
+}
+
+.notebook-paper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 3rem;
+    width: 3px;
+    height: 100%;
+    background: #E5989B;
+    opacity: 0.5;
+}
+
+/* ============================================
+   WISH TAGS (Hanging Tags Style)
+   ============================================ */
+
+.wish-tag {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.wish-tag::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 20px;
+    background: #C77D63;
+    border-radius: 4px;
+    opacity: 0.8;
+}
+
+.wish-tag::after {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    background: #FAF3E0;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.wish-tag:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #FDF6E3;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #9CAF88;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #8B7355;
+}
+
+/* ============================================
+   GIFT BUTTONS
+   ============================================ */
+
+.gift-btn {
+    min-width: 150px;
+    transition: all 0.3s ease;
+}
+
+.gift-btn:hover {
+    transform: translateY(-4px);
+}
+
+.gift-btn i {
+    transition: transform 0.3s ease;
+}
+
+.gift-btn:hover i {
+    transform: scale(1.2);
+}
+
+/* ============================================
+   MUSIC CONTROL
+   ============================================ */
+
+.music-control button {
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(156, 175, 136, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(156, 175, 136, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(156, 175, 136, 0);
+    }
+}
+
+/* ============================================
+   FOCUS STATES (Accessibility)
+   ============================================ */
+
+a:focus,
+button:focus,
+.polaroid-card:focus,
+[tabindex="0"]:focus {
+    outline: 2px solid #9CAF88;
+    outline-offset: 2px;
+}
+
+/* ============================================
+   MOBILE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .botanical-parallax {
+        display: none;
+    }
+
+    .polaroid-card:hover {
+        transform: none;
+    }
+
+    .garden-sign-card:hover {
+        transform: none;
+    }
+
+    .floral-decoration {
+        gap: 0.5rem;
+    }
+
+    .floral-decoration i {
+        font-size: 1.5rem !important;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .botanical-parallax {
+        display: none;
+    }
+}
+
+/* ============================================
+   PRINT STYLES
+   ============================================ */
+
+@media print {
+    .botanical-parallax,
+    .music-control,
+    video,
+    .gs_reveal,
+    button,
+    a[href^="http"] {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .polaroid-frame,
+    .garden-sign-card,
+    .notebook-paper {
+        box-shadow: none;
+        transform: none;
+    }
+}

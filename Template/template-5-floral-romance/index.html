@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Walimatul Urus - Harris & Nurul. Floral Romance Wedding Template.">
+    <title>Walimatul Urus | Harris & Nurul</title>
+
+    <!-- Google Fonts: Floral Romance Selection -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Josefin+Sans:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+    <!-- Tailwind CSS Directives -->
+    <style>
+        @import "tailwindcss";
+
+        @theme {
+            --color-rose-50: #fff1f2;
+            --color-rose-100: #ffe4e6;
+            --color-rose-200: #fecdd3;
+            --color-rose-300: #fda4af;
+            --color-rose-400: #fb7185;
+            --color-rose-500: #f43f5e;
+            --color-blush: #FFB7C5;
+            --color-dusty-rose: #DCAE96;
+            --color-sage: #B5A89F;
+            --color-cream: #FFF8F0;
+            --color-gold: #D4AF37;
+            --color-text: #4A4A4A;
+
+            --font-script: "Pinyon Script", cursive;
+            --font-hand: "Great Vibes", cursive;
+            --font-serif: "Cormorant Garamond", serif;
+            --font-sans: "Josefin Sans", sans-serif;
+        }
+    </style>
+
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>">
+
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body class="font-sans text-text antialiased overflow-x-hidden bg-cream">
+
+    <!-- Floating Floral Petals -->
+    <div class="floral-petals" aria-hidden="true">
+        <div class="petal petal-1">🌸</div>
+        <div class="petal petal-2">🌹</div>
+        <div class="petal petal-3">🌺</div>
+        <div class="petal petal-4">💮</div>
+        <div class="petal petal-5">🌸</div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero-floral">
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <!-- Floral Frame Top -->
+            <div class="floral-frame-top gs_reveal">
+                <svg viewBox="0 0 400 100" class="floral-svg">
+                    <path d="M200,0 C150,30 100,50 50,40 C20,35 0,60 0,80 L400,80 C400,60 380,35 350,40 C300,50 250,30 200,0" 
+                          fill="#FFF8F0" opacity="0.9"/>
+                </svg>
+            </div>
+
+            <div class="gs_reveal" data-gs-delay="0.1">
+                <p class="pretitle">Together with their families</p>
+            </div>
+
+            <h1 class="hero-names gs_reveal" data-gs-delay="0.2">
+                <span class="name-first">Harris</span>
+                <span class="ampersand">&</span>
+                <span class="name-second">Nurul</span>
+            </h1>
+
+            <div class="floral-divider gs_reveal" data-gs-delay="0.3">
+                <span class="flower-icon">🌸</span>
+                <span class="divider-line"></span>
+                <span class="flower-icon">🌹</span>
+                <span class="divider-line"></span>
+                <span class="flower-icon">🌸</span>
+            </div>
+
+            <div class="hero-date-location gs_reveal" data-gs-delay="0.4">
+                <p class="date">Saturday, 25 December 2027</p>
+                <p class="location">Shangri-La Hotel, Kuala Lumpur</p>
+            </div>
+
+            <!-- Floral Frame Bottom -->
+            <div class="floral-frame-bottom gs_reveal" data-gs-delay="0.5">
+                <svg viewBox="0 0 400 100" class="floral-svg">
+                    <path d="M200,100 C150,70 100,50 50,60 C20,65 0,40 0,20 L400,20 C400,40 380,65 350,60 C300,50 250,70 200,100" 
+                          fill="#FFF8F0" opacity="0.9"/>
+                </svg>
+            </div>
+
+            <a href="#intro" class="scroll-indicator gs_reveal" data-gs-delay="0.6">
+                <i class="ph ph-flower"></i>
+                <span>Scroll</span>
+            </a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Intro Section -->
+        <section id="intro" class="intro-section">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="gs_reveal">
+                    <div class="bismillah">
+                        <p class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+                    </div>
+
+                    <blockquote class="verse">
+                        <p>"And We created you in pairs"</p>
+                        <cite>— Surah An-Naba 78:8</cite>
+                    </blockquote>
+
+                    <div class="floral-accent">
+                        <i class="ph ph-flower-tulip"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="couple-section">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="section-header gs_reveal">
+                    <h2>The Happy Couple</h2>
+                    <div class="floral-decoration">
+                        <i class="ph ph-flower"></i>
+                        <i class="ph ph-flower-lotus"></i>
+                        <i class="ph ph-flower"></i>
+                    </div>
+                </div>
+
+                <div class="couple-grid">
+                    <!-- Groom -->
+                    <div class="couple-card gs_reveal">
+                        <div class="photo-frame">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" 
+                                     alt="Groom" 
+                                     class="couple-photo">
+                            </div>
+                            <div class="frame-corners"></div>
+                        </div>
+                        <div class="couple-info">
+                            <h3 class="couple-name">Harris</h3>
+                            <p class="couple-fullname">Bin Hassan</p>
+                            <p class="couple-parents">Son of Mr. Hassan & Mrs. Khadijah</p>
+                        </div>
+                    </div>
+
+                    <!-- Bride -->
+                    <div class="couple-card gs_reveal" data-gs-delay="0.2">
+                        <div class="photo-frame">
+                            <div class="photo-wrapper">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" 
+                                     alt="Bride" 
+                                     class="couple-photo">
+                            </div>
+                            <div class="frame-corners"></div>
+                        </div>
+                        <div class="couple-info">
+                            <h3 class="couple-name">Nurul</h3>
+                            <p class="couple-fullname">Binti Rahman</p>
+                            <p class="couple-parents">Daughter of Mr. Rahman & Mrs. Aishah</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="event-section">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="section-header gs_reveal">
+                    <h2>Wedding Events</h2>
+                    <div class="floral-decoration">
+                        <i class="ph ph-flower"></i>
+                        <i class="ph ph-heart"></i>
+                        <i class="ph ph-flower"></i>
+                    </div>
+                </div>
+
+                <div class="event-cards">
+                    <div class="event-card gs_reveal">
+                        <div class="event-card-header">
+                            <i class="ph ph-ring"></i>
+                            <h3>Akad Nikah</h3>
+                        </div>
+                        <div class="event-card-body">
+                            <p class="event-detail"><i class="ph ph-calendar"></i> Saturday, 25 December 2027</p>
+                            <p class="event-detail"><i class="ph ph-clock"></i> 9:00 AM</p>
+                            <p class="event-detail"><i class="ph ph-map-pin"></i> Grand Ballroom, Shangri-La Hotel</p>
+                        </div>
+                    </div>
+
+                    <div class="event-card gs_reveal" data-gs-delay="0.1">
+                        <div class="event-card-header">
+                            <i class="ph ph-confetti"></i>
+                            <h3>Reception</h3>
+                        </div>
+                        <div class="event-card-body">
+                            <p class="event-detail"><i class="ph ph-calendar"></i> Saturday, 25 December 2027</p>
+                            <p class="event-detail"><i class="ph ph-clock"></i> 11:00 AM - 5:00 PM</p>
+                            <p class="event-detail"><i class="ph ph-map-pin"></i> Grand Ballroom, Shangri-La Hotel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="map-wrapper gs_reveal" data-gs-delay="0.2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.6148!2d101.7129!3d3.1569!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMyowOScyNC45Ik4gMTAxsTQyJzQ2LjUiRQ!5e0!3m2!1sen!2smy!4v1700000000000"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        title="Wedding venue location">
+                    </iframe>
+                </div>
+
+                <div class="map-buttons gs_reveal" data-gs-delay="0.3">
+                    <a href="https://maps.google.com" target="_blank" class="btn-floral">
+                        <i class="ph ph-google-logo"></i>
+                        Google Maps
+                    </a>
+                    <a href="https://waze.com/ul" target="_blank" class="btn-floral">
+                        <i class="ph ph-navigation-arrow"></i>
+                        Waze
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP & Ucapan Section -->
+        <section class="rsvp-section">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="section-header gs_reveal">
+                    <h2>RSVP & Wishes</h2>
+                    <div class="floral-decoration">
+                        <i class="ph ph-flower-heart"></i>
+                        <i class="ph ph-heart"></i>
+                        <i class="ph ph-flower-heart"></i>
+                    </div>
+                </div>
+
+                <div class="rsvp-grid">
+                    <!-- RSVP Form -->
+                    <div class="rsvp-form-container gs_reveal">
+                        <form id="rsvpForm" class="rsvp-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="Your full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="Your phone number" required>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="attendance">Attendance</label>
+                                    <select id="attendance" name="attendance" required>
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="Hadir">✓ Will Attend</option>
+                                        <option value="Tidak Hadir">✗ Cannot Attend</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group" id="paxContainer">
+                                    <label for="pax">Number of Guests</label>
+                                    <select id="pax" name="pax">
+                                        <option value="1">1 Person</option>
+                                        <option value="2">2 People</option>
+                                        <option value="3">3 People</option>
+                                        <option value="4">4 People</option>
+                                        <option value="5">5 People</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Wishes for the Couple</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Your heartfelt wishes..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn-submit-floral">
+                                <i class="ph ph-paper-plane-right"></i>
+                                Send RSVP
+                            </button>
+
+                            <div id="successMsg" class="success-message" style="display: none;">
+                                <i class="ph ph-check-circle"></i>
+                                <p>Thank you! Your RSVP has been recorded.</p>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Ucapan Display -->
+                    <div class="ucapan-container" id="ucapanContainer">
+                        <!-- Wishes will be loaded here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gift Registry -->
+        <section class="gift-section">
+            <div class="max-w-3xl mx-auto px-6 text-center">
+                <div class="section-header gs_reveal">
+                    <h2>Gift Registry</h2>
+                    <div class="floral-decoration">
+                        <i class="ph ph-gift"></i>
+                        <i class="ph ph-heart"></i>
+                        <i class="ph ph-gift"></i>
+                    </div>
+                </div>
+
+                <p class="gift-message gs_reveal">
+                    Your presence is the greatest gift of all. However, if you wish to honour us with a present, 
+                    a monetary gift would be warmly appreciated.
+                </p>
+
+                <div class="gift-cards gs_reveal">
+                    <div class="gift-card-floral">
+                        <i class="ph ph-wallet"></i>
+                        <span class="gift-type">Touch 'n Go</span>
+                        <p class="gift-number" data-copy="0123456789">012-345 6789</p>
+                        <button class="btn-copy-floral" aria-label="Copy number">
+                            <i class="ph ph-copy"></i>
+                        </button>
+                    </div>
+
+                    <div class="gift-card-floral">
+                        <i class="ph ph-bank"></i>
+                        <span class="gift-type">Maybank</span>
+                        <p class="gift-number" data-copy="123456789012">1234-5678-9012</p>
+                        <button class="btn-copy-floral" aria-label="Copy number">
+                            <i class="ph ph-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="floral-footer">
+        <div class="footer-content">
+            <div class="footer-names">
+                <span>Harris</span>
+                <span class="footer-amp">&</span>
+                <span>Nurul</span>
+            </div>
+            <p class="footer-hashtag">#HarrisNurul2027</p>
+            <div class="footer-floral">
+                <i class="ph ph-flower"></i>
+                <i class="ph ph-flower-lotus"></i>
+                <i class="ph ph-flower"></i>
+            </div>
+            <p class="footer-copyright">© 2027 Floral Romance Wedding. Made with 💕</p>
+        </div>
+    </footer>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>

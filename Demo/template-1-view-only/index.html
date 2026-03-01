@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 1 - Modern Design | Demo Preview</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Caveat:wght@400;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN for demo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6b705c',
+                        secondary: '#b7b7a4',
+                        background: '#fdfbf7',
+                        surface: '#ffffff',
+                        textMain: '#1e1e1e',
+                        textLight: '#4b4b4b',
+                        accent: '#cb997e',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Amiri', 'serif'],
+                        handwritten: ['Caveat', 'cursive'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Ucapan Component Styles -->
+    <link rel="stylesheet" href="../ucapan-component.css">
+
+    <style>
+        /* Base styles */
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        
+        /* Back Button */
+        .back-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: #6b705c;
+        }
+        
+        .back-nav:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Hero Video Overlay */
+        .hero-video-overlay {
+            background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.15) 100%);
+        }
+
+        /* Scroll Reveal */
+        .gs_reveal {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(50px);
+            transition: all 1.2s ease;
+        }
+
+        .gs_reveal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Card 3D Effect */
+        .card-3d {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
+        }
+        
+        .card-3d:hover {
+            transform: rotateX(2deg) rotateY(2deg) scale(1.02);
+            box-shadow: 0 25px 40px -15px rgba(0,0,0,0.2);
+        }
+
+        /* Hand-drawn underline */
+        .handdrawn-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .handdrawn-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: url('data:image/svg+xml;utf8,<svg width="100%" height="12" viewBox="0 0 100 12" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 6 Q 20 2, 40 6 T 80 6 T 120 6" stroke="%236b705c" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.3"/></svg>');
+            background-repeat: repeat-x;
+            background-size: 100px 12px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 768px) {
+            .back-nav {
+                top: 10px;
+                left: 10px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-textMain antialiased overflow-x-hidden bg-background">
+
+    <!-- Back Navigation -->
+    <a href="../../index.html" class="back-nav">
+        <i class="ph ph-arrow-left text-xl"></i>
+        <span>Back to Gallery</span>
+    </a>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&q=80" 
+                 alt="Wedding venue" 
+                 class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 hero-video-overlay"></div>
+
+        <div class="relative z-10 p-6 flex flex-col items-center justify-center w-full gs_reveal">
+            <span class="font-handwritten text-4xl md:text-5xl text-white/95 mb-4 block event-arabic-title">Walimatul Urus</span>
+
+            <h1 class="font-display font-bold text-7xl md:text-9xl text-white leading-none tracking-tight drop-shadow-2xl">
+                <span class="groom-first-name">AMIR</span>
+                <span class="block text-accent text-5xl md:text-6xl my-2">&</span>
+                <span class="bride-first-name">SARAH</span>
+            </h1>
+
+            <p class="font-handwritten text-2xl md:text-3xl text-white/90 mt-6 handdrawn-underline event-date">
+                Sabtu, 28 Ogos 2027
+            </p>
+
+            <a href="#intro" class="absolute bottom-12 text-white/80 hover:text-white transition-colors">
+                <i class="ph ph-caret-down text-4xl animate-bounce"></i>
+            </a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Intro Section -->
+        <section id="intro" class="py-32 px-6 bg-background relative overflow-hidden">
+            <div class="max-w-3xl mx-auto text-center gs_reveal">
+                <p class="font-serif text-4xl md:text-5xl text-primary mb-10 leading-relaxed" lang="ar" dir="rtl">
+                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                </p>
+
+                <p class="font-display text-2xl md:text-3xl font-light italic text-textMain mb-6 leading-relaxed">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya."
+                </p>
+                <p class="font-handwritten text-lg text-primary">— Surah Ar-Rum: 21</p>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20 gs_reveal">
+                    <h2 class="font-display font-bold text-4xl md:text-5xl text-primary mb-4">Pengantin</h2>
+                    <div class="w-24 h-1 bg-primary/30 mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                    <!-- Groom Card -->
+                    <article class="card-3d bg-white rounded-3xl shadow-xl overflow-hidden">
+                        <div class="relative h-[500px]">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" 
+                                 alt="Groom" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 text-white">
+                                <h3 class="font-display font-bold text-4xl mb-1">Amiruddin</h3>
+                                <p class="font-light text-white/90 text-sm">Bin Abdullah</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Bride Card -->
+                    <article class="card-3d bg-white rounded-3xl shadow-xl overflow-hidden">
+                        <div class="relative h-[500px]">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" 
+                                 alt="Bride" 
+                                 class="w-full h-full object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-6 left-6 text-white">
+                                <h3 class="font-display font-bold text-4xl mb-1">Nur Sarah</h3>
+                                <p class="font-light text-white/90 text-sm">Binti Ahmad</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="py-28 px-6 bg-background">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 gs_reveal">
+                    <h2 class="font-display font-bold text-4xl md:text-5xl text-primary mb-4">Butiran Majlis</h2>
+                    <div class="w-24 h-1 bg-primary/30 mx-auto"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div class="bg-white rounded-3xl shadow-xl p-8 md:p-10 card-3d gs_reveal">
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                                    <i class="ph ph-calendar-blank text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-bold text-xl">Tarikh & Masa</h4>
+                                    <p class="text-textLight mt-2 text-lg">Sabtu, 28 Ogos 2027<br>11:00 Pagi - 4:00 Petang</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                                    <i class="ph ph-map-pin text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-display font-bold text-xl">Lokasi</h4>
+                                    <p class="text-textLight mt-2 text-lg">Grand Ballroom, Hotel Seri Malaysia<br>Taiping, Perak</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative h-[400px] rounded-3xl overflow-hidden shadow-xl gs_reveal">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.8152206841263!2d100.73801287413642!3d4.851726040788649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cb2acdbf62e847%3A0x23a6f195d03a119e!2sHotel%20Seri%20Malaysia%20Taiping!5e0!3m2!1sen!2smy!4v1700000000000" 
+                                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="py-28 px-6 bg-white">
+            <div class="max-w-3xl mx-auto text-center gs_reveal">
+                <h2 class="font-display font-bold text-4xl md:text-5xl text-primary mb-4">RSVP</h2>
+                <div class="w-24 h-1 bg-primary/30 mx-auto mb-8"></div>
+                <p class="font-handwritten text-xl text-textLight mb-12">Sudi kiranya mengesahkan kehadiran.</p>
+                
+                <div class="bg-background rounded-3xl p-8 shadow-xl">
+                    <form class="space-y-6">
+                        <input type="text" placeholder="Nama Penuh" class="w-full bg-transparent border-b-2 border-gray-300 py-3 focus:border-primary focus:outline-none transition-colors">
+                        <input type="tel" placeholder="No. Telefon" class="w-full bg-transparent border-b-2 border-gray-300 py-3 focus:border-primary focus:outline-none transition-colors">
+                        <select class="w-full bg-transparent border-b-2 border-gray-300 py-3 focus:border-primary focus:outline-none transition-colors">
+                            <option>Kehadiran</option>
+                            <option>Hadir</option>
+                            <option>Tidak Hadir</option>
+                        </select>
+                        <button type="button" class="w-full bg-primary text-white font-display tracking-widest px-8 py-4 rounded-xl hover:bg-primary/90 transition-all">
+                            Hantar RSVP
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Live Ucapan Section -->
+    <section class="ucapan-section">
+        <div class="ucapan-section-title">
+            <h2>Ucapan & Doa</h2>
+            <p>Leave your wishes and prayers for the couple</p>
+        </div>
+
+        <div class="ucapan-container-grid">
+            <!-- Form -->
+            <div class="ucapan-form-container">
+                <form id="ucapanForm" class="ucapan-form">
+                    <div class="ucapan-form-group">
+                        <label for="ucapanName">Your Name</label>
+                        <input type="text" id="ucapanName" placeholder="e.g. Ahmad & Family" required>
+                    </div>
+
+                    <div class="ucapan-form-row">
+                        <div class="ucapan-form-group">
+                            <label for="ucapanAttendance">Attendance</label>
+                            <select id="ucapanAttendance" required>
+                                <option value="Hadir">✓ Hadir</option>
+                                <option value="Tidak Hadir">✗ Tidak Hadir</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ucapan-form-group">
+                        <label for="ucapanMessage">Your Wishes</label>
+                        <textarea id="ucapanMessage" placeholder="Write your wishes for the couple..." rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="ucapan-submit-btn">
+                        <i class="ph ph-paper-plane-right"></i>
+                        <span>Send Wishes</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Display -->
+            <div class="ucapan-display-container" id="ucapanContainer">
+                <!-- Wishes will be loaded here dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 px-6 text-center bg-background border-t border-primary/10">
+        <p class="font-handwritten text-4xl text-primary mb-4">Amir & Sarah</p>
+        <p class="font-display text-xs tracking-widest text-textLight">#AmirSarahForever</p>
+    </footer>
+
+    <script>
+        // GSAP-like scroll reveal animation
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.gs_reveal');
+            
+            const revealOnScroll = () => {
+                reveals.forEach(elem => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = elem.getBoundingClientRect().top;
+                    const revealPoint = 150;
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        elem.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Check on load
+        }
+
+        initScrollReveal();
+    </script>
+
+    <!-- Ucapan Component Script -->
+    <script src="../ucapan-component.js"></script>
+</body>
+</html>

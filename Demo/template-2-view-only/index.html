@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 2 - Classic Design | Demo Preview</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Great+Vibes&family=Lora:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN for demo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8b7355',
+                        secondary: '#a89078',
+                        background: '#fdf5e6',
+                        surface: '#ffffff',
+                        textMain: '#2d2419',
+                        accent: '#d4af37',
+                    },
+                    fontFamily: {
+                        display: ['Cinzel', 'serif'],
+                        handwritten: ['Great Vibes', 'cursive'],
+                        serif: ['Lora', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Ucapan Component Styles -->
+    <link rel="stylesheet" href="../ucapan-component.css">
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        
+        /* Back Button */
+        .back-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            color: #8b7355;
+        }
+        
+        .back-nav:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Glass Panel Effect */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(12px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px 0 rgba(139, 115, 85, 0.1);
+        }
+
+        /* Ornate Frame */
+        .ornate-frame {
+            position: relative;
+            padding: 2rem;
+        }
+        
+        .ornate-frame::before {
+            content: '';
+            position: absolute;
+            inset: 10px;
+            border: 1px solid rgba(139, 115, 85, 0.3);
+            pointer-events: none;
+        }
+
+        /* Scroll Reveal */
+        .gs_reveal {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(50px);
+            transition: all 1.2s ease;
+        }
+
+        .gs_reveal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .back-nav {
+                top: 10px;
+                left: 10px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-serif text-textMain antialiased bg-background">
+
+    <!-- Back Navigation -->
+    <a href="../../index.html" class="back-nav">
+        <i class="ph ph-arrow-left text-xl"></i>
+        <span>Back to Gallery</span>
+    </a>
+
+    <!-- Ornate Frame Overlay -->
+    <div class="fixed inset-0 pointer-events-none z-50 border-[12px] md:border-[24px] border-double border-primary/20 m-4 md:m-8"></div>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80" 
+                 alt="" 
+                 class="w-full h-full object-cover opacity-30">
+        </div>
+
+        <div class="relative z-10 max-w-4xl gs_reveal glass-panel p-12 md:p-20 border-double border-4 border-primary/20">
+            <p class="font-display tracking-[0.3em] uppercase text-primary mb-8 text-sm md:text-base">Walimatul Urus</p>
+
+            <h1 class="font-handwritten text-7xl md:text-9xl text-primary mb-6">
+                <span class="groom-first-name">Faris</span>
+                <span class="block font-serif italic text-4xl md:text-5xl my-4 text-textMain">&</span>
+                <span class="bride-first-name">Aisya</span>
+            </h1>
+
+            <div class="w-48 h-px bg-primary/40 mx-auto my-10"></div>
+
+            <p class="font-display text-xl md:text-2xl tracking-widest text-textMain event-date">
+                Sabtu, 20 November 2027
+            </p>
+
+            <div class="mt-16">
+                <a href="#intro" class="text-primary hover:text-accent transition-colors">
+                    <i class="ph ph-caret-down text-3xl animate-bounce"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Intro Section -->
+        <section id="intro" class="py-32 px-6 text-center">
+            <div class="max-w-3xl mx-auto gs_reveal">
+                <i class="ph ph-flower-lotus text-5xl text-primary/40 mb-10"></i>
+                <p class="font-serif text-3xl md:text-4xl text-primary mb-8 leading-relaxed" lang="ar" dir="rtl">
+                    بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+                </p>
+                <p class="font-serif italic text-xl md:text-2xl leading-relaxed text-textMain mb-6">
+                    "Dan Kami ciptakan kamu berpasang-pasangan."
+                </p>
+                <p class="font-display text-sm tracking-widest text-primary">Surah An-Naba': 8</p>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="py-24 px-6 bg-white/50">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="text-center gs_reveal">
+                    <div class="relative inline-block mb-8">
+                        <div class="w-64 h-80 border-2 border-primary/20 rounded-t-full overflow-hidden p-3">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" 
+                                 alt="Groom" 
+                                 class="w-full h-full object-cover rounded-t-full">
+                        </div>
+                    </div>
+                    <h2 class="font-display text-3xl mb-2">Ahmad Faris Bin Ibrahim</h2>
+                    <p class="font-serif italic text-textLight">Putera kepada En. Ibrahim & Pn. Halimah</p>
+                </div>
+
+                <div class="text-center gs_reveal">
+                    <div class="relative inline-block mb-8">
+                        <div class="w-64 h-80 border-2 border-primary/20 rounded-t-full overflow-hidden p-3">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" 
+                                 alt="Bride" 
+                                 class="w-full h-full object-cover rounded-t-full">
+                        </div>
+                    </div>
+                    <h2 class="font-display text-3xl mb-2">Siti Nur Aisya Binti Razak</h2>
+                    <p class="font-serif italic text-textLight">Puteri kepada En. Razak & Pn. Fatimah</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="py-32 px-6 text-center bg-background">
+            <div class="max-w-4xl mx-auto">
+                <h3 class="font-display text-4xl mb-16 gs_reveal">Butiran Majlis</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 gs_reveal">
+                    <div>
+                        <i class="ph ph-calendar-blank text-3xl text-primary mb-4"></i>
+                        <h4 class="font-display text-lg mb-2">Tarikh</h4>
+                        <p class="event-date">Sabtu, 20 Nov 2027</p>
+                    </div>
+                    <div>
+                        <i class="ph ph-clock text-3xl text-primary mb-4"></i>
+                        <h4 class="font-display text-lg mb-2">Masa</h4>
+                        <p class="event-time">11:00 AM - 4:00 PM</p>
+                    </div>
+                    <div>
+                        <i class="ph ph-map-pin text-3xl text-primary mb-4"></i>
+                        <h4 class="font-display text-lg mb-2">Lokasi</h4>
+                        <p class="event-venue-name">Dewan Banquet Seri Anggun</p>
+                    </div>
+                </div>
+
+                <div class="mt-20 flex justify-center gap-6 gs_reveal">
+                    <a href="#" class="border border-primary px-8 py-3 font-display text-sm tracking-widest hover:bg-primary hover:text-white transition-all">Google Maps</a>
+                    <a href="#" class="border border-primary px-8 py-3 font-display text-sm tracking-widest hover:bg-primary hover:text-white transition-all">Waze</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section class="py-32 px-6">
+            <div class="max-w-xl mx-auto text-center gs_reveal glass-panel p-10 md:p-16 rounded-3xl">
+                <h3 class="font-display text-4xl mb-12">RSVP</h3>
+                <form class="space-y-8">
+                    <input type="text" placeholder="Nama Penuh" class="w-full border-b border-primary/30 py-4 bg-transparent focus:border-primary outline-none text-center">
+                    <input type="tel" placeholder="No. Telefon" class="w-full border-b border-primary/30 py-4 bg-transparent focus:border-primary outline-none text-center">
+                    <select class="w-full border-b border-primary/30 py-4 bg-transparent focus:border-primary outline-none text-center appearance-none">
+                        <option value="" disabled selected>Kehadiran</option>
+                        <option value="Hadir">Hadir</option>
+                        <option value="Tidak Hadir">Tidak Dapat Hadir</option>
+                    </select>
+                    <textarea placeholder="Ucapan buat pengantin" rows="3" class="w-full border-b border-primary/30 py-4 bg-transparent focus:border-primary outline-none text-center resize-none"></textarea>
+                    <button type="button" class="bg-primary text-white font-display tracking-[0.2em] px-12 py-4 hover:bg-primary/90 transition-all uppercase text-sm mx-auto">
+                        Hantar RSVP
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Live Ucapan Section -->
+    <section class="ucapan-section">
+        <div class="ucapan-section-title">
+            <h2>Ucapan & Doa</h2>
+            <p>Leave your wishes and prayers for the couple</p>
+        </div>
+
+        <div class="ucapan-container-grid">
+            <div class="ucapan-form-container">
+                <form id="ucapanForm" class="ucapan-form">
+                    <div class="ucapan-form-group">
+                        <label for="ucapanName">Your Name</label>
+                        <input type="text" id="ucapanName" placeholder="e.g. Ahmad & Family" required>
+                    </div>
+
+                    <div class="ucapan-form-row">
+                        <div class="ucapan-form-group">
+                            <label for="ucapanAttendance">Attendance</label>
+                            <select id="ucapanAttendance" required>
+                                <option value="Hadir">✓ Hadir</option>
+                                <option value="Tidak Hadir">✗ Tidak Hadir</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ucapan-form-group">
+                        <label for="ucapanMessage">Your Wishes</label>
+                        <textarea id="ucapanMessage" placeholder="Write your wishes for the couple..." rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="ucapan-submit-btn">
+                        <i class="ph ph-paper-plane-right"></i>
+                        <span>Send Wishes</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="ucapan-display-container" id="ucapanContainer"></div>
+        </div>
+    </section>
+
+    <footer class="py-20 px-6 text-center border-t border-primary/10">
+        <p class="font-handwritten text-4xl text-primary mb-4">Faris & Aisya</p>
+        <p class="font-display text-xs tracking-[0.3em] uppercase opacity-50">#FarisAisyaForever</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.gs_reveal');
+            
+            const revealOnScroll = () => {
+                reveals.forEach(elem => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = elem.getBoundingClientRect().top;
+                    const revealPoint = 150;
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        elem.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        }
+
+        initScrollReveal();
+    </script>
+
+    <!-- Ucapan Component Script -->
+    <script src="../ucapan-component.js"></script>
+</body>
+</html>

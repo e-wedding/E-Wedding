@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 3 - Rustic Garden | Demo Preview</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Yellowtail&family=Work+Sans:wght@300;400;500&family=Alice&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN for demo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B7355',
+                        secondary: '#A89F91',
+                        accent: '#C77D63',
+                        sage: '#9CAF88',
+                        terracotta: '#E5989B',
+                        cream: '#FDF6E3',
+                        background: '#FAF3E0',
+                        textMain: '#3D3026',
+                        textLight: '#6B5D52',
+                    },
+                    fontFamily: {
+                        display: ['Cormorant Garamond', 'serif'],
+                        handwritten: ['Yellowtail', 'cursive'],
+                        sans: ['Work Sans', 'sans-serif'],
+                        body: ['Alice', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Ucapan Component Styles -->
+    <link rel="stylesheet" href="../ucapan-component.css">
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        
+        /* Back Button */
+        .back-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Work Sans', sans-serif;
+            font-weight: 500;
+            color: #9CAF88;
+        }
+        
+        .back-nav:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Botanical Parallax */
+        .botanical-parallax {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .leaf, .flower {
+            position: absolute;
+            opacity: 0.15;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        .leaf-1 { top: 10%; left: 5%; font-size: 2rem; }
+        .leaf-2 { top: 60%; left: 90%; font-size: 1.5rem; }
+        .flower-1 { top: 30%; left: 85%; font-size: 1.5rem; }
+
+        /* Scroll Reveal */
+        .gs_reveal {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(50px);
+            transition: all 1.2s ease;
+        }
+
+        .gs_reveal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Polaroid Card */
+        .polaroid-card {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
+        }
+        
+        .polaroid-card:hover {
+            transform: rotate(-2deg) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+
+        .polaroid-frame {
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Garden Sign Card */
+        .garden-sign-card {
+            background: white;
+            padding: 2rem 1.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .garden-sign-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Floral Decoration */
+        .floral-decoration {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .back-nav {
+                top: 10px;
+                left: 10px;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+            .botanical-parallax {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-textMain antialiased bg-background overflow-x-hidden">
+
+    <!-- Back Navigation -->
+    <a href="../../index.html" class="back-nav">
+        <i class="ph ph-arrow-left text-xl"></i>
+        <span>Back to Gallery</span>
+    </a>
+
+    <!-- Botanical Parallax -->
+    <div class="botanical-parallax hidden md:block">
+        <div class="leaf leaf-1">🌿</div>
+        <div class="leaf leaf-2">🍃</div>
+        <div class="flower flower-1">🌸</div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center text-center px-6 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1587271407850-8d438a28d767?auto=format&fit=crop&q=80" 
+                 alt="Garden wedding venue" 
+                 class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl gs_reveal">
+            <!-- Floral Decoration -->
+            <div class="floral-decoration">
+                <i class="ph ph-flower text-4xl text-sage"></i>
+                <i class="ph ph-plant text-3xl text-terracotta"></i>
+                <i class="ph ph-flower-tulip text-4xl text-sage"></i>
+            </div>
+
+            <p class="font-handwritten text-3xl md:text-4xl text-primary mb-6">
+                بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+            </p>
+
+            <p class="font-display tracking-[0.25em] uppercase text-textLight mb-4 text-sm md:text-base">
+                Walimatul Urus
+            </p>
+
+            <h1 class="font-display font-semibold text-6xl md:text-8xl text-textMain leading-none mb-4">
+                <span class="inline-block">Daniel</span>
+                <span class="block font-handwritten text-5xl md:text-7xl text-accent my-2">&</span>
+                <span class="inline-block">Emilia</span>
+            </h1>
+
+            <div class="flex items-center justify-center gap-4 my-10">
+                <div class="w-24 h-px bg-gradient-to-r from-transparent to-sage"></div>
+                <i class="ph-fill ph-flower-heart text-2xl text-terracotta"></i>
+                <div class="w-24 h-px bg-gradient-to-l from-transparent to-sage"></div>
+            </div>
+
+            <div class="inline-block bg-white/60 backdrop-blur-sm px-10 py-4 rounded-2xl border border-sage/30 shadow-lg">
+                <p class="font-display text-lg md:text-xl tracking-widest text-textMain event-date">
+                    Sabtu, 15 Oktober 2027
+                </p>
+                <p class="font-handwritten text-sm text-textLight mt-1">11:00 Pagi - 5:00 Petang</p>
+            </div>
+
+            <p class="font-body text-textLight mt-6">Taman Botani, Cowie Bay, Sabah</p>
+
+            <a href="#intro" class="absolute bottom-12 text-textLight hover:text-primary transition-colors">
+                <i class="ph ph-caret-down text-3xl animate-bounce"></i>
+            </a>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Intro Section -->
+        <section id="intro" class="py-24 px-6 bg-gradient-to-b from-background to-white relative">
+            <div class="max-w-3xl mx-auto text-center gs_reveal">
+                <i class="ph ph-heart text-3xl text-accent mb-6 inline-block animate-pulse"></i>
+                
+                <p class="font-body italic text-xl md:text-2xl leading-relaxed text-textMain mb-8">
+                    "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya."
+                </p>
+                
+                <div class="flex items-center justify-center gap-3">
+                    <div class="w-16 h-px bg-sage"></div>
+                    <i class="ph-fill ph-flower-lotus text-xl text-sage"></i>
+                    <div class="w-16 h-px bg-sage"></div>
+                </div>
+                
+                <p class="font-display text-sm tracking-widest text-textLight mt-4">SURAH AR-RUM: 21</p>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16 gs_reveal">
+                    <h2 class="font-display font-semibold text-4xl md:text-5xl text-primary mb-4">Mempelai</h2>
+                    <div class="flex items-center justify-center gap-3">
+                        <div class="w-12 h-px bg-sage"></div>
+                        <i class="ph-fill ph-flower-heart text-2xl text-terracotta"></i>
+                        <div class="w-12 h-px bg-sage"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20">
+                    <!-- Groom -->
+                    <article class="polaroid-card gs_reveal">
+                        <div class="polaroid-frame">
+                            <div class="polaroid-photo" style="aspect-ratio: 4/5;">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" 
+                                     alt="Groom" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                            <div class="text-center py-4 bg-cream rounded-b">
+                                <h3 class="font-display text-2xl">Daniel</h3>
+                                <p class="font-handwritten text-textLight">Bin David</p>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-center font-body text-textLight">
+                            Putera kepada <span class="font-medium text-primary">En. David</span> & 
+                            <span class="font-medium text-primary">Pn. Deborah</span>
+                        </p>
+                    </article>
+
+                    <!-- Bride -->
+                    <article class="polaroid-card gs_reveal">
+                        <div class="polaroid-frame">
+                            <div class="polaroid-photo" style="aspect-ratio: 4/5;">
+                                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" 
+                                     alt="Bride" 
+                                     class="w-full h-full object-cover">
+                            </div>
+                            <div class="text-center py-4 bg-cream rounded-b">
+                                <h3 class="font-display text-2xl">Emilia</h3>
+                                <p class="font-handwritten text-textLight">Binti Edward</p>
+                            </div>
+                        </div>
+                        <p class="mt-6 text-center font-body text-textLight">
+                            Puteri kepada <span class="font-medium text-primary">En. Edward</span> & 
+                            <span class="font-medium text-primary">Pn. Elizabeth</span>
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section class="py-24 px-6 bg-background">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 gs_reveal">
+                    <h2 class="font-display font-semibold text-4xl md:text-5xl text-primary mb-4">Butiran Majlis</h2>
+                    <div class="flex items-center justify-center gap-3">
+                        <div class="w-12 h-px bg-sage"></div>
+                        <i class="ph-fill ph-plant text-2xl text-sage"></i>
+                        <div class="w-12 h-px bg-sage"></div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 gs_reveal">
+                    <div class="garden-sign-card text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-sage/20 flex items-center justify-center">
+                            <i class="ph ph-calendar-blank text-3xl text-sage"></i>
+                        </div>
+                        <h4 class="font-display text-lg mb-2">Tarikh</h4>
+                        <p class="font-body text-textLight">Sabtu, 15 Oktober 2027</p>
+                    </div>
+
+                    <div class="garden-sign-card text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-terracotta/20 flex items-center justify-center">
+                            <i class="ph ph-clock text-3xl text-terracotta"></i>
+                        </div>
+                        <h4 class="font-display text-lg mb-2">Masa</h4>
+                        <p class="font-body text-textLight">11:00 AM - 5:00 PM</p>
+                    </div>
+
+                    <div class="garden-sign-card text-center">
+                        <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
+                            <i class="ph ph-map-pin text-3xl text-primary"></i>
+                        </div>
+                        <h4 class="font-display text-lg mb-2">Lokasi</h4>
+                        <p class="font-body text-textLight">Taman Botani</p>
+                        <p class="font-body text-textLight text-sm">Cowie Bay, Sabah</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section class="py-24 px-6 bg-white">
+            <div class="max-w-3xl mx-auto text-center gs_reveal">
+                <h2 class="font-display font-semibold text-4xl md:text-5xl text-primary mb-4">RSVP & Ucapan</h2>
+                <div class="flex items-center justify-center gap-3">
+                    <div class="w-12 h-px bg-sage"></div>
+                    <i class="ph-fill ph-heart text-2xl text-accent"></i>
+                    <div class="w-12 h-px bg-sage"></div>
+                </div>
+                <p class="font-handwritten text-lg text-textLight mt-4 mb-12">Sudi kiranya mengesahkan kehadiran.</p>
+                
+                <div class="bg-cream rounded-2xl p-8 shadow-lg border-l-4 border-sage">
+                    <form class="space-y-6">
+                        <input type="text" placeholder="Nama Penuh" class="w-full bg-transparent border-b-2 border-sage/30 py-3 focus:border-sage focus:outline-none transition-colors font-body text-lg">
+                        <input type="tel" placeholder="No. Telefon" class="w-full bg-transparent border-b-2 border-sage/30 py-3 focus:border-sage focus:outline-none transition-colors font-body text-lg">
+                        <select class="w-full bg-transparent border-b-2 border-sage/30 py-3 focus:border-sage focus:outline-none transition-colors font-body text-lg appearance-none">
+                            <option value="" disabled selected>Kehadiran</option>
+                            <option value="Hadir">✓ Hadir</option>
+                            <option value="Tidak Hadir">✗ Tidak Dapat Hadir</option>
+                        </select>
+                        <textarea placeholder="Ucapan buat pengantin" rows="4" class="w-full bg-transparent border-b-2 border-sage/30 py-3 focus:border-sage focus:outline-none transition-colors font-handwritten text-lg resize-none"></textarea>
+                        <button type="button" class="w-full bg-sage text-white font-display tracking-widest px-8 py-4 rounded-xl hover:bg-sage/80 transition-all uppercase text-sm shadow-lg">
+                            Hantar RSVP
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Live Ucapan Section -->
+    <section class="ucapan-section">
+        <div class="ucapan-section-title">
+            <h2>Ucapan & Doa</h2>
+            <p>Leave your wishes and prayers for the couple</p>
+        </div>
+
+        <div class="ucapan-container-grid">
+            <div class="ucapan-form-container">
+                <form id="ucapanForm" class="ucapan-form">
+                    <div class="ucapan-form-group">
+                        <label for="ucapanName">Your Name</label>
+                        <input type="text" id="ucapanName" placeholder="e.g. Ahmad & Family" required>
+                    </div>
+
+                    <div class="ucapan-form-row">
+                        <div class="ucapan-form-group">
+                            <label for="ucapanAttendance">Attendance</label>
+                            <select id="ucapanAttendance" required>
+                                <option value="Hadir">✓ Hadir</option>
+                                <option value="Tidak Hadir">✗ Tidak Hadir</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ucapan-form-group">
+                        <label for="ucapanMessage">Your Wishes</label>
+                        <textarea id="ucapanMessage" placeholder="Write your wishes for the couple..." rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="ucapan-submit-btn">
+                        <i class="ph ph-paper-plane-right"></i>
+                        <span>Send Wishes</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="ucapan-display-container" id="ucapanContainer"></div>
+        </div>
+    </section>
+
+    <footer class="py-16 px-6 text-center bg-white border-t border-sage/20">
+        <p class="font-handwritten text-4xl text-primary mb-4">Daniel & Emilia</p>
+        <div class="flex items-center justify-center gap-2 mb-4">
+            <div class="w-16 h-px bg-sage"></div>
+            <i class="ph-fill ph-flower-heart text-xl text-terracotta"></i>
+            <div class="w-16 h-px bg-sage"></div>
+        </div>
+        <p class="font-display text-xs tracking-widest text-textLight">#DanielEmiliaForever</p>
+    </footer>
+
+    <script>
+        // Scroll reveal animation
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.gs_reveal');
+            
+            const revealOnScroll = () => {
+                reveals.forEach((elem, index) => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = elem.getBoundingClientRect().top;
+                    const revealPoint = 150;
+                    const delay = parseFloat(elem.dataset.gsDelay) || 0;
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        setTimeout(() => {
+                            elem.classList.add('active');
+                        }, delay * 1000);
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        }
+
+        // Parallax effect for botanical elements
+        function initParallax() {
+            const leaves = document.querySelectorAll('.leaf, .flower');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                
+                leaves.forEach((leaf, index) => {
+                    const speed = 0.1 + (index * 0.05);
+                    const yPos = -(scrolled * speed);
+                    leaf.style.transform = `translateY(${yPos}px) rotate(${yPos * 0.1}deg)`;
+                });
+            });
+        }
+
+        initScrollReveal();
+        initParallax();
+    </script>
+
+    <!-- Ucapan Component Script -->
+    <script src="../ucapan-component.js"></script>
+</body>
+</html>

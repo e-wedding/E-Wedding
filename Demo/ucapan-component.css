@@ -1,0 +1,221 @@
+/* ========================================
+   LIVE UCAPAN (WISHES) COMPONENT STYLES
+   ======================================== */
+
+.ucapan-section {
+    padding: 60px 20px;
+    background: #fafafa;
+}
+
+.ucapan-section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.ucapan-section-title h2 {
+    font-family: var(--font-display, 'Playfair Display', serif);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.ucapan-section-title p {
+    color: #666;
+    font-size: 1rem;
+}
+
+.ucapan-container-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Form Styles */
+.ucapan-form-container {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    height: fit-content;
+}
+
+.ucapan-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ucapan-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ucapan-form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.ucapan-form-group input,
+.ucapan-form-group textarea,
+.ucapan-form-group select {
+    padding: 12px 16px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.ucapan-form-group input:focus,
+.ucapan-form-group textarea:focus,
+.ucapan-form-group select:focus {
+    outline: none;
+    border-color: #d4af37;
+}
+
+.ucapan-form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.ucapan-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.ucapan-submit-btn {
+    background: #d4af37;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.ucapan-submit-btn:hover {
+    background: #b89628;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
+
+/* Wishes Display */
+.ucapan-display-container {
+    max-height: 600px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.ucapan-display-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ucapan-display-container::-webkit-scrollbar-track {
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+.ucapan-display-container::-webkit-scrollbar-thumb {
+    background: #d4af37;
+    border-radius: 10px;
+}
+
+.ucapan-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 15px;
+    border-left: 4px solid #d4af37;
+    transition: all 0.3s ease;
+}
+
+.ucapan-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.ucapan-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.ucapan-card-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #1a1a1a;
+}
+
+.ucapan-card-status {
+    font-size: 0.75rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.ucapan-card-status.status-hadir {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.ucapan-card-status.status-tidak {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.ucapan-card-message {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.7;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Empty State */
+.ucapan-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+}
+
+.ucapan-empty i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.5;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .ucapan-container-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .ucapan-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .ucapan-section {
+        padding: 40px 15px;
+    }
+
+    .ucapan-section-title h2 {
+        font-size: 2rem;
+    }
+
+    .ucapan-display-container {
+        max-height: 400px;
+    }
+}

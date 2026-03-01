@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template 4 - Minimalist | Demo Preview</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind CSS (CDN for demo) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#0a0a0a',
+                        white: '#ffffff',
+                        'gray-50': '#fafafa',
+                        'gray-100': '#f5f5f5',
+                        'gray-200': '#e5e5e5',
+                        'gray-400': '#a3a3a3',
+                        'gray-500': '#737373',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Ucapan Component Styles -->
+    <link rel="stylesheet" href="../ucapan-component.css">
+
+    <style>
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        
+        /* Back Button */
+        .back-nav {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+            color: #0a0a0a;
+            border: 1px solid #e5e5e5;
+        }
+        
+        .back-nav:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #0a0a0a;
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+
+        /* Scroll Reveal */
+        .gs_reveal {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(60px);
+            transition: all 1s ease;
+        }
+
+        .gs_reveal.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Mono Text */
+        .mono-text {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* Hero */
+        .hero-title {
+            font-size: clamp(3rem, 12vw, 8rem);
+            font-weight: 200;
+            line-height: 0.9;
+            letter-spacing: -0.05em;
+        }
+
+        /* Couple Card */
+        .couple-card {
+            transition: transform 0.5s ease;
+        }
+        
+        .couple-card:hover .couple-image {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .couple-image {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease, transform 0.5s ease;
+        }
+
+        /* Event Card */
+        .event-card {
+            transition: all 0.3s ease;
+        }
+        
+        .event-card:hover {
+            border-color: #0a0a0a;
+            transform: translateY(-4px);
+        }
+
+        /* Form Input */
+        .form-input {
+            width: 100%;
+            padding: 1rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid #e5e5e5;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-bottom-color: #0a0a0a;
+        }
+
+        /* Button */
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1.25rem 2rem;
+            background: #0a0a0a;
+            border: none;
+            color: #ffffff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background: #262626;
+        }
+
+        /* Gift Card */
+        .gift-card {
+            transition: all 0.3s ease;
+        }
+        
+        .gift-card:hover {
+            border-color: #0a0a0a;
+        }
+
+        @media (max-width: 768px) {
+            .back-nav {
+                top: 10px;
+                left: 10px;
+                padding: 10px 16px;
+                font-size: 0.8rem;
+            }
+            
+            .hero-title {
+                font-size: clamp(2.5rem, 15vw, 5rem);
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-black antialiased bg-white">
+
+    <!-- Back Navigation -->
+    <a href="../../index.html" class="back-nav">
+        <i class="ph ph-arrow-left text-xl"></i>
+        <span>Back to Gallery</span>
+    </a>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex items-center justify-center text-center px-6 relative">
+        <div class="hero-content">
+            <div class="gs_reveal">
+                <span class="mono-text text-sm">WALIMATUL URUS</span>
+            </div>
+
+            <h1 class="hero-title gs_reveal mt-8">
+                <span class="block">
+                    <span class="groom-first-name">ADAM</span>
+                </span>
+                <span class="block text-gray-500 text-4xl md:text-6xl my-4 font-light">&</span>
+                <span class="block">
+                    <span class="bride-first-name">HAWA</span>
+                </span>
+            </h1>
+
+            <div class="flex items-center justify-center gap-4 my-12 gs_reveal">
+                <div class="w-16 h-px bg-black"></div>
+                <span class="text-xs">●</span>
+                <div class="w-16 h-px bg-black"></div>
+            </div>
+
+            <div class="gs_reveal">
+                <span class="mono-text text-xl">28 . 08 . 2027</span>
+                <p class="mono-text text-xs text-gray-500 mt-2 tracking-[0.3em]">KUALA LUMPUR</p>
+            </div>
+
+            <div class="mt-20 gs_reveal">
+                <span class="mono-text text-xs">SCROLL</span>
+                <div class="w-px h-16 bg-gradient-to-b from-black to-transparent mx-auto mt-4"></div>
+            </div>
+        </div>
+
+        <!-- Grid Background -->
+        <div class="absolute inset-0 z-0" style="background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px); background-size: 60px 60px; pointer-events: none;"></div>
+    </header>
+
+    <main id="main-content">
+        <!-- Quote Section -->
+        <section class="py-32 px-6 bg-gray-50">
+            <div class="max-w-4xl mx-auto text-center gs_reveal">
+                <p class="font-light text-3xl md:text-5xl text-black leading-relaxed mb-8">
+                    "And We created you in pairs."
+                </p>
+                <span class="mono-text text-xs text-gray-500">Surah An-Naba 78:8</span>
+            </div>
+        </section>
+
+        <!-- Couple Section -->
+        <section class="py-32 px-6 max-w-6xl mx-auto">
+            <div class="text-center mb-20 gs_reveal">
+                <span class="mono-text text-xs text-gray-500 tracking-[0.3em]">THE COUPLE</span>
+                <div class="w-10 h-px bg-black mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="text-center gs_reveal">
+                    <div class="mb-8 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80" 
+                             alt="Groom" 
+                             class="w-full aspect-[4/5] object-cover couple-image">
+                    </div>
+                    <h3 class="font-light text-4xl mb-2">Adam</h3>
+                    <p class="mono-text text-sm text-gray-500">Bin Abdullah</p>
+                    <p class="font-light text-sm text-gray-500 mt-3">Son of En. Abdullah & Pn. Aminah</p>
+                </div>
+
+                <div class="text-center gs_reveal">
+                    <div class="mb-8 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80" 
+                             alt="Bride" 
+                             class="w-full aspect-[4/5] object-cover couple-image">
+                    </div>
+                    <h3 class="font-light text-4xl mb-2">Hawa</h3>
+                    <p class="mono-text text-sm text-gray-500">Binti Ahmad</p>
+                    <p class="font-light text-sm text-gray-500 mt-3">Daughter of En. Ahmad & Pn. Salmah</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Section -->
+        <section class="py-32 px-6 bg-gray-50">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-16 gs_reveal">
+                    <span class="mono-text text-xs text-gray-500 tracking-[0.3em]">THE EVENT</span>
+                    <div class="w-10 h-px bg-black mx-auto mt-6"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-8 border border-gray-100 gs_reveal event-card">
+                        <i class="ph ph-calendar text-3xl mb-6"></i>
+                        <h4 class="mono-text text-xs text-gray-500 mb-4">DATE</h4>
+                        <p class="text-lg">Saturday, 28 August 2027</p>
+                        <p class="text-gray-500 mt-1">11:00 AM - 4:00 PM</p>
+                    </div>
+
+                    <div class="bg-white p-8 border border-gray-100 gs_reveal event-card">
+                        <i class="ph ph-map-pin text-3xl mb-6"></i>
+                        <h4 class="mono-text text-xs text-gray-500 mb-4">VENUE</h4>
+                        <p class="text-lg">Grand Ballroom</p>
+                        <p class="text-gray-500 mt-1">Kuala Lumpur Convention Centre</p>
+                    </div>
+
+                    <div class="bg-white p-8 border border-gray-100 gs_reveal event-card">
+                        <i class="ph ph-clock text-3xl mb-6"></i>
+                        <h4 class="mono-text text-xs text-gray-500 mb-4">TIME</h4>
+                        <p class="text-lg">Akad: 9:00 AM</p>
+                        <p class="text-gray-500 mt-1">Reception: 11:00 AM onwards</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RSVP Section -->
+        <section class="py-32 px-6 max-w-2xl mx-auto">
+            <div class="text-center mb-16 gs_reveal">
+                <span class="mono-text text-xs text-gray-500 tracking-[0.3em]">RSVP</span>
+                <div class="w-10 h-px bg-black mx-auto mt-6"></div>
+            </div>
+
+            <div class="bg-gray-50 p-8 md:p-12 border border-gray-100 gs_reveal">
+                <form class="space-y-8">
+                    <div>
+                        <label class="mono-text text-xs text-gray-500 block mb-3">NAME</label>
+                        <input type="text" placeholder="Your full name" class="form-input">
+                    </div>
+
+                    <div>
+                        <label class="mono-text text-xs text-gray-500 block mb-3">PHONE</label>
+                        <input type="tel" placeholder="Your phone number" class="form-input">
+                    </div>
+
+                    <div>
+                        <label class="mono-text text-xs text-gray-500 block mb-3">ATTENDANCE</label>
+                        <select class="form-input">
+                            <option value="" disabled selected>Select your response</option>
+                            <option value="Hadir">✓ Will Attend</option>
+                            <option value="Tidak Hadir">✗ Cannot Attend</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="mono-text text-xs text-gray-500 block mb-3">MESSAGE</label>
+                        <textarea placeholder="Your wishes for the couple" rows="4" class="form-input resize-y"></textarea>
+                    </div>
+
+                    <button type="button" class="btn-submit w-full">
+                        <span>SUBMIT RSVP</span>
+                        <i class="ph ph-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Gift Registry -->
+        <section class="py-32 px-6 bg-gray-50">
+            <div class="max-w-3xl mx-auto text-center">
+                <div class="mb-16 gs_reveal">
+                    <span class="mono-text text-xs text-gray-500 tracking-[0.3em]">GIFT REGISTRY</span>
+                    <div class="w-10 h-px bg-black mx-auto mt-6"></div>
+                </div>
+
+                <p class="font-light text-lg text-gray-600 mb-12 gs_reveal">
+                    Your presence is the greatest gift of all. However, if you wish to honour us with a present, 
+                    a monetary gift would be warmly appreciated.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 border border-gray-100 gs_reveal gift-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="ph ph-wallet text-2xl"></i>
+                            <span class="mono-text text-xs">TOUCH 'N GO</span>
+                        </div>
+                        <p class="font-mono text-xl mb-2">012-345 6789</p>
+                    </div>
+
+                    <div class="bg-white p-6 border border-gray-100 gs_reveal gift-card">
+                        <div class="flex items-center gap-3 mb-4">
+                            <i class="ph ph-bank text-2xl"></i>
+                            <span class="mono-text text-xs">MAYBANK</span>
+                        </div>
+                        <p class="font-mono text-xl mb-2">1234-5678-9012</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Live Ucapan Section -->
+    <section class="ucapan-section">
+        <div class="ucapan-section-title">
+            <h2>Ucapan & Doa</h2>
+            <p>Leave your wishes and prayers for the couple</p>
+        </div>
+
+        <div class="ucapan-container-grid">
+            <div class="ucapan-form-container">
+                <form id="ucapanForm" class="ucapan-form">
+                    <div class="ucapan-form-group">
+                        <label for="ucapanName">Your Name</label>
+                        <input type="text" id="ucapanName" placeholder="e.g. Ahmad & Family" required>
+                    </div>
+
+                    <div class="ucapan-form-row">
+                        <div class="ucapan-form-group">
+                            <label for="ucapanAttendance">Attendance</label>
+                            <select id="ucapanAttendance" required>
+                                <option value="Hadir">✓ Hadir</option>
+                                <option value="Tidak Hadir">✗ Tidak Hadir</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="ucapan-form-group">
+                        <label for="ucapanMessage">Your Wishes</label>
+                        <textarea id="ucapanMessage" placeholder="Write your wishes for the couple..." rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit" class="ucapan-submit-btn">
+                        <i class="ph ph-paper-plane-right"></i>
+                        <span>Send Wishes</span>
+                    </button>
+                </form>
+            </div>
+
+            <div class="ucapan-display-container" id="ucapanContainer"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 px-6 border-t border-gray-100">
+        <div class="text-center">
+            <div class="mono-text text-2xl mb-4">
+                <span>ADAM</span>
+                <span class="text-gray-400 mx-4">&</span>
+                <span>HAWA</span>
+            </div>
+            <p class="mono-text text-xs text-gray-500 tracking-[0.3em]">#AdamHawa2027</p>
+            <p class="text-xs text-gray-400 mt-6">© 2027 Minimalist Wedding. Made with precision.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Progress Bar
+        function initProgressBar() {
+            const progressBar = document.getElementById('progressBar');
+            window.addEventListener('scroll', () => {
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+        }
+
+        // Scroll Reveal
+        function initScrollReveal() {
+            const reveals = document.querySelectorAll('.gs_reveal');
+            
+            const revealOnScroll = () => {
+                reveals.forEach(elem => {
+                    const windowHeight = window.innerHeight;
+                    const elementTop = elem.getBoundingClientRect().top;
+                    const revealPoint = 150;
+                    
+                    if (elementTop < windowHeight - revealPoint) {
+                        elem.classList.add('active');
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll();
+        }
+
+        initProgressBar();
+        initScrollReveal();
+    </script>
+
+    <!-- Ucapan Component Script -->
+    <script src="../ucapan-component.js"></script>
+</body>
+</html>
