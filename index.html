@@ -7,7 +7,7 @@
     <meta name="description" content="Select your custom wedding theme inspired by the natural beauty of Sabah. Modern, classic, rustic, minimalist, and floral romance templates.">
 
     <!-- Security: Content Security Policy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://script.google.com https://wa.me;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com https://cdn.jsdelivr.net; img-src 'self' data: https:; connect-src 'self' https://script.google.com https://script.googleusercontent.com https://wa.me;">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Sabah Wedding E-Invite Gallery">
@@ -38,7 +38,7 @@
 <body>
     <!-- Marketing Banner -->
     <div class="marketing-banner">
-        <p>✨ From the shores of Batu Tinagat to the heart of the Rainforest — Invite them with the beauty of Sabah</p>
+        <p>✨ Where Sabahan Tradition Meets Modern Interaction.</p>
     </div>
 
     <!-- Header Section -->
@@ -50,53 +50,53 @@
     <!-- Unified Bento Gallery -->
     <div class="bento-grid">
         <!-- Top Left: Botanical Sketch (2x2) -->
-        <button class="bento-item botanical-sketch featured" data-demo="Demo/template-1-view-only" aria-label="View Botanical Sketch Demo">
+        <button class="bento-item botanical-sketch featured" data-theme="Botanical Sketch" data-demo="Preview/template-1-view-only/index.html" aria-label="View Botanical Sketch">
             <div class="overlay">
                 <span class="badge">Most Popular</span>
                 <h2>Botanical Sketch</h2>
-                <p>Minimalist & Sophisticated</p>
+                <p>Art that reacts to your touch.</p>
             </div>
         </button>
 
         <!-- Top Right: Rainforest & Modern Minimalist -->
-        <button class="bento-item rainforest" data-demo="Demo/template-2-view-only" aria-label="View Enchanted Rainforest Demo">
+        <button class="bento-item rainforest" data-theme="Enchanted Rainforest" data-demo="Preview/template-2-view-only/index.html" aria-label="View Enchanted Rainforest">
             <div class="overlay">
                 <span class="badge">Live Demo</span>
                 <h2>Enchanted Rainforest</h2>
-                <p>Lush & Intimate</p>
+                <p>A window into the heart of the wild.</p>
             </div>
         </button>
 
-        <button class="bento-item garden" data-demo="Demo/template-4-view-only" aria-label="View Modern Minimalist Demo">
+        <button class="bento-item garden" data-theme="Modern Minimalist" data-demo="Preview/template-4-view-only/index.html" aria-label="View Modern Minimalist">
             <div class="overlay">
                 <span class="badge">Live Demo</span>
                 <h2>Modern Minimalist</h2>
-                <p>Clean & Contemporary</p>
+                <p>Precision in every pixel.</p>
             </div>
         </button>
 
         <!-- Bottom Left: Luxury Resort & Floral Romance -->
-        <button class="bento-item luxury" data-demo="Demo/template-3-view-only" aria-label="View Luxury Resort Demo">
+        <button class="bento-item luxury" data-theme="Luxury Resort" data-demo="Preview/template-3-view-only/index.html" aria-label="View Luxury Resort">
             <div class="overlay">
                 <span class="badge">Live Demo</span>
                 <h2>Luxury Resort</h2>
-                <p>Borneo Royale Elegance</p>
+                <p>A five-star welcome to your wedding.</p>
             </div>
         </button>
 
-        <button class="bento-item chapel" data-demo="Demo/template-5-view-only" aria-label="View Floral Romance Demo">
+        <button class="bento-item chapel" data-theme="Floral Romance" data-demo="Preview/template-5-view-only/index.html" aria-label="View Floral Romance">
             <div class="overlay">
                 <span class="badge">Live Demo</span>
                 <h2>Floral Romance</h2>
-                <p>Elegant & Feminine</p>
+                <p>Poetry in motion.</p>
             </div>
         </button>
 
         <!-- Bottom Right: Custom Bespoke (2x2) -->
-        <button class="bento-item bespoke-box featured-bespoke" data-theme="Custom Bespoke" aria-label="Start Custom Bespoke Design">
+        <button class="bento-item bespoke-box featured-bespoke" data-theme="Your Design" aria-label="Start Your Design">
             <div class="overlay">
                 <span class="badge gold">VIP Service</span>
-                <h2>Custom Bespoke</h2>
+                <h2>Your Design</h2>
                 <p>Your unique vision, built from scratch</p>
                 <span class="btn-bespoke">Start Custom Design</span>
             </div>
@@ -121,7 +121,7 @@
                                 </div>
                             </li>
                             <li>
-                                <i class="ph ph-trees"></i>
+                                <i class="ph ph-plant"></i>
                                 <div>
                                     <strong>Enchanted Rainforest</strong>
                                     Utilizes blurred glass panels and fixed ornate frames to create a sense of looking through a window into the heart of the jungle.
@@ -158,8 +158,8 @@
                     </button>
                 </div>
                 <div class="about-stat">
-                    <span class="stat-number">5</span>
-                    <span class="stat-label">Unique Sabah Themes</span>
+                    <span class="stat-number">Five</span>
+                    <span class="stat-label">Signature Digital Experiences</span>
                 </div>
             </div>
         </div>
@@ -177,77 +177,96 @@
 
             <form id="inviteForm">
                 <input type="hidden" id="themeInput" name="theme">
-                <input type="hidden" id="packageInput" name="package" value="Premium">
+                <input type="hidden" id="packageInput" name="package" value="Signature">
 
-                <!-- Package Selection -->
-                <div class="package-selector">
-                    <div class="package-header">
-                        <label>Select Your Experience Package</label>
-                        <span class="compare-link" onclick="openCompare()">View Feature Comparison</span>
+                <!-- Two-column layout wrapper -->
+                <div class="booking-modal-layout">
+                    <!-- Left Column: Package Selection -->
+                    <div class="package-column">
+                        <div class="package-selector">
+                            <div class="package-header">
+                                <label>Select Your Experience Package</label>
+                                <span class="compare-link" onclick="openCompare()">View Feature Comparison</span>
+                            </div>
+
+                            <div class="package-grid">
+                                <div class="package-card" data-package="Classic" onclick="selectAndCompare(this)">
+                                    <div class="success-check">
+                                        <i class="ph-fill ph-check-circle"></i>
+                                    </div>
+                                    <span class="p-name">Classic</span>
+                                    <span class="p-desc">Static E-Invite</span>
+                                    <span class="p-price">RM 49</span>
+                                </div>
+                                <div class="package-card active" data-package="Signature" onclick="selectAndCompare(this)">
+                                    <span class="p-badge">Most Popular</span>
+                                    <div class="success-check">
+                                        <i class="ph-fill ph-check-circle"></i>
+                                    </div>
+                                    <span class="p-name">Signature</span>
+                                    <span class="p-desc">Animated + RSVP</span>
+                                    <span class="p-price">RM 99</span>
+                                </div>
+                                <div class="package-card" data-package="Bespoke" onclick="selectAndCompare(this)">
+                                    <div class="success-check">
+                                        <i class="ph-fill ph-check-circle"></i>
+                                    </div>
+                                    <span class="p-name">Bespoke</span>
+                                    <span class="p-desc">Fully Customized</span>
+                                    <div class="mini-feature-list">
+                                        <span>+ Multi-lang</span>
+                                        <span>+ Digital Angpow</span>
+                                    </div>
+                                    <span class="p-price">RM 149+</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="package-grid">
-                        <div class="package-card" data-package="Basic" onclick="selectPackage(this)">
-                            <div class="success-check">
-                                <i class="ph-fill ph-check-circle"></i>
-                            </div>
-                            <span class="p-name">Basic</span>
-                            <span class="p-desc">Static E-Invite</span>
-                            <span class="p-price">RM 49</span>
+
+                    <!-- Right Column: Form Details -->
+                    <div class="form-column">
+                        <div class="form-group">
+                            <label for="coupleNames">Couple's Names</label>
+                            <input type="text" id="coupleNames" name="coupleNames" placeholder="e.g. Adam & Hawa" required>
                         </div>
-                        <div class="package-card active" data-package="Premium" onclick="selectPackage(this)">
-                            <span class="p-badge">Most Popular</span>
-                            <div class="success-check">
-                                <i class="ph-fill ph-check-circle"></i>
-                            </div>
-                            <span class="p-name">Premium</span>
-                            <span class="p-desc">Animated + RSVP</span>
-                            <span class="p-price">RM 99</span>
+
+                        <div class="form-group">
+                            <label for="weddingDate">Wedding Date</label>
+                            <input type="date" id="weddingDate" name="weddingDate" required>
                         </div>
-                        <div class="package-card" data-package="Custom" onclick="selectPackage(this)">
-                            <div class="success-check">
-                                <i class="ph-fill ph-check-circle"></i>
-                            </div>
-                            <span class="p-name">Custom</span>
-                            <span class="p-desc">Fully Customized</span>
-                            <span class="p-price">RM 149</span>
+
+                        <div class="form-group">
+                            <label for="venue">Venue / Location</label>
+                            <input type="text" id="venue" name="venue" placeholder="e.g. Borneo Royale Hotel" required>
                         </div>
+
+                        <div class="form-group">
+                            <label for="email">Email (Optional)</label>
+                            <input type="email" id="email" name="email" placeholder="e.g. hello@example.com">
+                        </div>
+
+                        <div class="form-group terms-group">
+                            <input type="checkbox" id="termsCheck" required>
+                            <label for="termsCheck">I agree to the <a href="javascript:void(0)" onclick="openLegal('privacy')">Privacy Policy</a> & <a href="javascript:void(0)" onclick="openLegal('terms')">Terms</a></label>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit" class="btn-primary" id="btnSubmitForm">Reserve My Theme</button>
+                            <button type="button" class="btn-secondary" id="btnWhatsApp">Chat with Designer</button>
+                        </div>
+
+                        <p id="formErrorMessage" class="error-text" style="display: none; color: #dc2626; font-size: 0.875rem; margin-top: 12px; text-align: center;">
+                            Oops! We couldn't save your details. Please try booking via WhatsApp instead.
+                        </p>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="coupleNames">Couple's Names</label>
-                    <input type="text" id="coupleNames" name="coupleNames" placeholder="e.g. Adam & Hawa" required>
+                <!-- Floating Price Summary Footer -->
+                <div class="price-summary-footer">
+                    <span class="price-label">Selected Package:</span>
+                    <span class="price-value" id="footerPackageName">Signature</span>
+                    <span class="price-total" id="footerPrice">RM 99</span>
                 </div>
-
-                <div class="form-group">
-                    <label for="weddingDate">Wedding Date</label>
-                    <input type="date" id="weddingDate" name="weddingDate" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="venue">Venue / Location</label>
-                    <input type="text" id="venue" name="venue" placeholder="e.g. Borneo Royale Hotel" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email (Optional)</label>
-                    <input type="email" id="email" name="email" placeholder="e.g. hello@example.com">
-                </div>
-
-                <div class="form-group terms-group">
-                    <input type="checkbox" id="termsCheck" required>
-                    <label for="termsCheck">I agree to the <a href="javascript:void(0)" onclick="openLegal('privacy')">Privacy Policy</a> & <a href="javascript:void(0)" onclick="openLegal('terms')">Terms</a></label>
-                </div>
-
-                <div class="button-group">
-                    <button type="submit" class="btn-primary" id="btnSubmitForm">Reserve My Theme</button>
-                    <button type="button" class="btn-secondary" id="btnWhatsApp">Chat with Designer</button>
-                </div>
-                
-                <p id="formErrorMessage" class="error-text" style="display: none; color: #dc2626; font-size: 0.875rem; margin-top: 12px; text-align: center;">
-                    Oops! We couldn't save your details. Please try booking via WhatsApp instead.
-                </p>
             </form>
         </div>
     </div>
@@ -261,13 +280,52 @@
                 <h2 id="previewTitle">Template Preview</h2>
                 <p>Just looking? Book this template to customize it!</p>
             </div>
-            
+
+            <div class="package-selector">
+                <div class="package-header">
+                    <label>Select Your Experience Package</label>
+                    <span class="compare-link" onclick="openCompare()">View Feature Comparison</span>
+                </div>
+
+                <div class="package-grid">
+                    <div class="package-card" data-package="Classic" onclick="selectAndCompare(this)">
+                        <div class="success-check">
+                            <i class="ph-fill ph-check-circle"></i>
+                        </div>
+                        <span class="p-name">Classic</span>
+                        <span class="p-desc">Static E-Invite</span>
+                        <span class="p-price">RM 49</span>
+                    </div>
+                    <div class="package-card active" data-package="Signature" onclick="selectAndCompare(this)">
+                        <span class="p-badge">Most Popular</span>
+                        <div class="success-check">
+                            <i class="ph-fill ph-check-circle"></i>
+                        </div>
+                        <span class="p-name">Signature</span>
+                        <span class="p-desc">Animated + RSVP</span>
+                        <span class="p-price">RM 99</span>
+                    </div>
+                    <div class="package-card" data-package="Bespoke" onclick="selectAndCompare(this)">
+                        <div class="success-check">
+                            <i class="ph-fill ph-check-circle"></i>
+                        </div>
+                        <span class="p-name">Bespoke</span>
+                        <span class="p-desc">Fully Customized</span>
+                        <div class="mini-feature-list">
+                            <span>+ Multi-lang</span>
+                            <span>+ Digital Angpow</span>
+                        </div>
+                        <span class="p-price">RM 149+</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="preview-actions">
                 <button class="btn-preview-primary" onclick="bookFromPreview()">
                     <i class="ph ph-shopping-cart"></i>
                     <span>Book This Template</span>
                 </button>
-                <a id="viewDemoBtn" href="#" target="_blank" class="btn-preview-secondary">
+                <a id="viewDemoBtn" href="javascript:void(0)" class="btn-preview-secondary" onclick="event.stopPropagation();">
                     <i class="ph ph-external-link"></i>
                     <span>Open Full Demo</span>
                 </a>
@@ -318,6 +376,7 @@
     <!-- Success Overlay -->
     <div id="successOverlay" class="success-overlay">
         <div class="success-card">
+            <div class="confetti-container" id="successConfetti"></div>
             <div class="confetti-icon">✨</div>
             <h2 id="successHeader">Request Received!</h2>
             <p>Your <strong><span id="confirmedTheme">Theme</span></strong> wedding details have been saved.</p>
@@ -374,68 +433,80 @@
 
     <!-- Package Comparison Modal -->
     <div id="compareModal" class="compare-overlay">
+        <button class="close-compare" aria-label="Close comparison modal" onclick="closeCompare()">&times;</button>
         <div class="compare-content">
-            <button class="close-compare" aria-label="Close comparison modal" onclick="closeCompare()">&times;</button>
             <h3 class="compare-title">Package Comparison</h3>
-            
+
             <div class="table-wrapper">
-                <table>
+                <table class="compare-table">
                     <thead>
                         <tr>
                             <th>Feature</th>
-                            <th>Basic</th>
-                            <th>Premium</th>
-                            <th>Luxe</th>
+                            <th>Classic</th>
+                            <th>Signature</th>
+                            <th class="highlight-luxe">Bespoke</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><strong>Digital Concept</strong></td>
-                            <td>Template-based</td>
-                            <td>Template-based</td>
-                            <td class="highlight-luxe">100% Unique / Bespoke</td>
-                        </tr>
-                        <tr>
                             <td><strong>Price</strong></td>
                             <td>RM 49</td>
                             <td>RM 99</td>
-                            <td class="highlight-luxe">RM 149+</td>
+                            <td class="highlight-luxe">RM 149++</td>
                         </tr>
                         <tr>
-                            <td><strong>RSVP Tracking</strong></td>
-                            <td>-</td>
-                            <td>Included</td>
-                            <td class="highlight-luxe">Live Dashboard + Guestbook</td>
+                            <td><strong>Theme Design</strong></td>
+                            <td>Standard Template</td>
+                            <td>Advanced Template</td>
+                            <td class="highlight-luxe">Fully Custom Design</td>
                         </tr>
                         <tr>
-                            <td><strong>Music Integration</strong></td>
-                            <td>-</td>
-                            <td>Standard Track</td>
-                            <td class="highlight-luxe">Custom Audio Selection</td>
+                            <td><strong>Languages</strong></td>
+                            <td>Malay Only</td>
+                            <td>Malay & English</td>
+                            <td class="highlight-luxe">EN / BM / Chinese</td>
                         </tr>
                         <tr>
-                            <td><strong>Interactive Level</strong></td>
-                            <td>Standard</td>
-                            <td>Animated + Parallax</td>
-                            <td class="highlight-luxe">3D/AR + Advanced SFX</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Google Maps</strong></td>
-                            <td>Text only</td>
-                            <td>Interactive</td>
+                            <td><strong>Map Type</strong></td>
+                            <td>Static Image</td>
+                            <td>Interactive (Waze/Google)</td>
                             <td class="highlight-luxe">Interactive + Vendor Links</td>
                         </tr>
                         <tr>
-                            <td><strong>Custom Colors</strong></td>
-                            <td>-</td>
-                            <td>Included</td>
-                            <td class="highlight-luxe">Full Branding Suite</td>
+                            <td><strong>RSVP & Wishes</strong></td>
+                            <td>—</td>
+                            <td>Yes (Real-time)</td>
+                            <td class="highlight-luxe">Yes + Guestbook</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Gift / Angpow</strong></td>
+                            <td>—</td>
+                            <td>—</td>
+                            <td class="highlight-luxe">DuitNow QR Integration</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Visual Effects</strong></td>
+                            <td>None</td>
+                            <td>Animation + Parallax</td>
+                            <td class="highlight-luxe">Custom Motion Design</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Audio</strong></td>
+                            <td>Standard</td>
+                            <td>Standard</td>
+                            <td class="highlight-luxe">Custom Selection</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Photo Gallery</strong></td>
+                            <td>—</td>
+                            <td>Up to 10 Photos</td>
+                            <td class="highlight-luxe">Unlimited</td>
                         </tr>
                         <tr>
                             <td><strong>Revision Rounds</strong></td>
                             <td>1</td>
-                            <td>2</td>
-                            <td class="highlight-luxe">Unlimited until Perfect</td>
+                            <td>3</td>
+                            <td class="highlight-luxe">Unlimited</td>
                         </tr>
                         <tr>
                             <td><strong>Support</strong></td>
@@ -458,9 +529,9 @@
     </div>
 
     <!-- WhatsApp Floating Action Button -->
-    <a href="https://wa.me/60123456789?text=Hi!%20I'm%20browsing%20your%20wedding%20e-invites%20and%20have%20a%20question..." 
-       target="_blank" 
-       class="whatsapp-fab" 
+    <a href="https://wa.me/60162395689?text=Hi%20there!%20%F0%9F%91%8B%0A%0AI%20just%20saw%20your%20Sabah-inspired%20wedding%20e-invites%20and%20they%27re%20beautiful!%20%F0%9F%98%8D%0A%0AI%27m%20browsing%20your%20collection%20and%20would%20love%20to%20know%20more%20about%20your%20packages%20and%20availability.%20Could%20you%20share%20more%20details%3F%20%F0%9F%92%95"
+       target="_blank"
+       class="whatsapp-fab"
        aria-label="Chat with us on WhatsApp">
         <i class="ph-fill ph-whatsapp-logo"></i>
         <span class="fab-text">Need Help? Chat Now</span>

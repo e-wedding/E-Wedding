@@ -475,5 +475,479 @@
 
     <!-- Ucapan Component Script -->
     <script src="../ucapan-component.js"></script>
+
+    <!-- Floating Book Now Button -->
+    <a href="javascript:void(0)" class="btn-book-floating" onclick="openPreviewModal()">
+        <i class="ph ph-shopping-cart"></i>
+        Book This Template
+    </a>
+    <style>
+        .btn-book-floating {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #D4AF37 0%, #F4D35E 100%);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .btn-book-floating:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-book-floating i {
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 600px) {
+            .btn-book-floating {
+                bottom: 15px;
+                right: 15px;
+                padding: 12px 20px;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+
+    <!-- Preview Modal (Same as Main Gallery) -->
+    <div id="previewModal" class="preview-overlay" style="display: none;">
+        <div class="preview-content">
+            <span class="close-preview" onclick="closePreviewModal()">&times;</span>
+
+            <div class="preview-header">
+                <h2 id="previewTitle">Luxury Resort</h2>
+                <p>Just looking? Book this template to customize it!</p>
+            </div>
+
+            <div class="preview-actions">
+                <button class="btn-preview-primary" onclick="bookFromPreview()">
+                    <i class="ph ph-shopping-cart"></i>
+                    <span>Book This Template</span>
+                </button>
+            </div>
+
+            <div class="preview-info">
+                <div class="info-grid">
+                    <div class="info-item">
+                        <i class="ph ph-palette"></i>
+                        <span>Fully Customizable</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph ph-device-mobile"></i>
+                        <span>Mobile Responsive</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph ph-clock"></i>
+                        <span>24-72h Delivery</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="ph ph-whatsapp-logo"></i>
+                        <span>Easy Booking</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-packages">
+                <h3>Starting from RM 49</h3>
+                <div class="mini-packages">
+                    <div class="mini-pkg">
+                        <span class="mini-pkg-name">Basic</span>
+                        <span class="mini-pkg-price">RM 49</span>
+                    </div>
+                    <div class="mini-pkg featured">
+                        <span class="mini-pkg-name">Premium</span>
+                        <span class="mini-pkg-price">RM 99</span>
+                        <span class="mini-pkg-badge">Popular</span>
+                    </div>
+                    <div class="mini-pkg">
+                        <span class="mini-pkg-name">Custom</span>
+                        <span class="mini-pkg-price">RM 149</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div id="bookingModal" class="booking-overlay" style="display: none;">
+        <div class="booking-content">
+            <button class="booking-close-btn" onclick="closeBookingModal()">&times;</button>
+            
+            <div class="booking-header">
+                <h2 id="bookingTitle">Luxury Resort Wedding</h2>
+                <p>Fill in the details for your e-invite</p>
+            </div>
+
+            <div class="booking-body">
+                <p style="text-align: center; color: #666; margin-bottom: 20px;">
+                    To complete your booking, please visit our main gallery.
+                </p>
+                <a href="../../index.html?select=Luxury%20Resort&book=true" class="booking-visit-btn">
+                    <i class="ph ph-external-link"></i>
+                    Continue to Main Gallery
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Preview Modal Styles */
+        .preview-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .preview-content {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.4s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .close-preview {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+            background: none;
+            border: none;
+        }
+
+        .close-preview:hover {
+            color: #333;
+        }
+
+        .preview-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .preview-header h2 {
+            font-family: 'Playfair Display', serif;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .preview-header p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .preview-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 600px) {
+            .preview-actions {
+                flex-direction: row;
+            }
+        }
+
+        .btn-preview-primary,
+        .btn-preview-secondary {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            text-decoration: none;
+            border: 2px solid transparent;
+        }
+
+        .btn-preview-primary {
+            background: linear-gradient(135deg, #D4AF37 0%, #F4D35E 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .btn-preview-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .btn-preview-secondary {
+            background: transparent;
+            color: #D4AF37;
+            border-color: #D4AF37;
+        }
+
+        .btn-preview-secondary:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .preview-info {
+            margin-bottom: 30px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #555;
+            font-size: 0.9rem;
+        }
+
+        .info-item i {
+            font-size: 1.3rem;
+            color: #D4AF37;
+        }
+
+        .preview-packages {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .preview-packages h3 {
+            font-family: 'Playfair Display', serif;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .mini-packages {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        @media (min-width: 600px) {
+            .mini-packages {
+                flex-direction: row;
+            }
+        }
+
+        .mini-pkg {
+            flex: 1;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            text-align: center;
+            position: relative;
+        }
+
+        .mini-pkg.featured {
+            border-color: #D4AF37;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .mini-pkg-name {
+            display: block;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .mini-pkg-price {
+            display: block;
+            color: #D4AF37;
+            font-weight: 700;
+        }
+
+        .mini-pkg-badge {
+            position: absolute;
+            top: -8px;
+            right: 50%;
+            transform: translateX(50%);
+            background: #D4AF37;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        /* Booking Modal Styles */
+        .booking-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .booking-content {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .booking-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.2s;
+        }
+
+        .booking-close-btn:hover {
+            color: #333;
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .booking-header h2 {
+            font-family: 'Playfair Display', serif;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .booking-header p {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .booking-body {
+            text-align: center;
+        }
+
+        .booking-visit-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #D4AF37 0%, #F4D35E 100%);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .booking-visit-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+        }
+
+        .booking-visit-btn i {
+            font-size: 1.1rem;
+        }
+    </style>
+
+    <script>
+        // Preview Modal Functions
+        function openPreviewModal() {
+            document.getElementById('previewModal').style.setProperty('display', 'flex', 'important');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closePreviewModal() {
+            document.getElementById('previewModal').style.setProperty('display', 'none', 'important');
+            document.body.style.overflow = '';
+        }
+
+        function bookFromPreview() {
+            closePreviewModal();
+            setTimeout(() => {
+                openBookingModal();
+            }, 150);
+        }
+
+        // Booking Modal Functions
+        function openBookingModal() {
+            document.getElementById('bookingModal').style.setProperty('display', 'flex', 'important');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBookingModal() {
+            document.getElementById('bookingModal').style.setProperty('display', 'none', 'important');
+            document.body.style.overflow = '';
+        }
+
+        // Close modals when clicking outside
+        document.getElementById('previewModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePreviewModal();
+            }
+        });
+
+        document.getElementById('bookingModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeBookingModal();
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePreviewModal();
+                closeBookingModal();
+            }
+        });
+    </script>
 </body>
 </html>
