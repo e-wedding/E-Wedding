@@ -47,10 +47,13 @@
         <p>Inspired by the natural beauty of Sabah</p>
     </header>
 
-    <!-- Unified Bento Gallery -->
-    <div class="bento-grid">
+    <!-- Main Content -->
+    <main>
+        <!-- Unified Bento Gallery -->
+        <div class="bento-grid">
         <!-- Top Left: Botanical Sketch (2x2) -->
         <button class="bento-item botanical-sketch featured" data-theme="Botanical Sketch" data-demo="Preview/template-1-view-only/index.html" aria-label="View Botanical Sketch">
+            <img src="Img/Template 1.png" alt="Botanical Sketch wedding theme preview" class="bento-item-image" loading="lazy">
             <div class="overlay">
                 <span class="badge">Most Popular</span>
                 <h2>Botanical Sketch</h2>
@@ -60,6 +63,7 @@
 
         <!-- Top Right: Rainforest & Modern Minimalist -->
         <button class="bento-item rainforest" data-theme="Enchanted Rainforest" data-demo="Preview/template-2-view-only/index.html" aria-label="View Enchanted Rainforest">
+            <img src="Img/Template 2.png" alt="Enchanted Rainforest wedding theme preview" class="bento-item-image" loading="lazy">
             <div class="overlay">
                 <span class="badge">Live Demo</span>
                 <h2>Enchanted Rainforest</h2>
@@ -68,6 +72,7 @@
         </button>
 
         <button class="bento-item garden" data-theme="Modern Minimalist" data-demo="Preview/template-4-view-only/index.html" aria-label="View Modern Minimalist">
+            <img src="Img/Template 4.png" alt="Modern Minimalist wedding theme preview" class="bento-item-image" loading="lazy">
             <div class="overlay">
                 <span class="badge">Live Demo</span>
                 <h2>Modern Minimalist</h2>
@@ -77,6 +82,7 @@
 
         <!-- Bottom Left: Luxury Resort & Floral Romance -->
         <button class="bento-item luxury" data-theme="Luxury Resort" data-demo="Preview/template-3-view-only/index.html" aria-label="View Luxury Resort">
+            <img src="Img/Template 3.png" alt="Luxury Resort wedding theme preview" class="bento-item-image" loading="lazy">
             <div class="overlay">
                 <span class="badge">Live Demo</span>
                 <h2>Luxury Resort</h2>
@@ -85,6 +91,7 @@
         </button>
 
         <button class="bento-item chapel" data-theme="Floral Romance" data-demo="Preview/template-5-view-only/index.html" aria-label="View Floral Romance">
+            <img src="Img/Template 5.png" alt="Floral Romance wedding theme preview" class="bento-item-image" loading="lazy">
             <div class="overlay">
                 <span class="badge">Live Demo</span>
                 <h2>Floral Romance</h2>
@@ -93,7 +100,8 @@
         </button>
 
         <!-- Bottom Right: Custom Bespoke (2x2) -->
-        <button class="bento-item bespoke-box featured-bespoke" data-theme="Your Design" aria-label="Start Your Design">
+        <button class="bento-item featured-bespoke" data-theme="Your Design" aria-label="Start Your Design">
+            <img src="Img/Custom Design.png" alt="Custom Bespoke wedding design service" class="bento-item-image" loading="lazy">
             <div class="overlay">
                 <span class="badge gold">VIP Service</span>
                 <h2>Your Design</h2>
@@ -152,7 +160,7 @@
                         <div id="textFade" class="fade-overlay"></div>
                     </div>
 
-                    <button id="readMoreBtn" class="read-more-btn" onclick="toggleAbout()">
+                    <button id="readMoreBtn" class="read-more-btn" aria-label="Read more about our technology">
                         <span>Read More About Our Tech</span>
                         <i class="ph ph-caret-down"></i>
                     </button>
@@ -163,12 +171,12 @@
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
     <!-- Booking Modal -->
     <div id="bookingModal" class="modal-overlay">
         <div class="modal-content">
-            <button class="close-button" aria-label="Close modal" onclick="closeModal()">&times;</button>
+            <button class="close-button" aria-label="Close modal" data-close-modal="bookingModal">&times;</button>
 
             <div class="modal-header">
                 <h2 id="selectedThemeTitle">Theme Name</h2>
@@ -186,11 +194,11 @@
                         <div class="package-selector">
                             <div class="package-header">
                                 <label>Select Your Experience Package</label>
-                                <span class="compare-link" onclick="openCompare()">View Feature Comparison</span>
+                                <span class="compare-link" data-action="open-compare">View Feature Comparison</span>
                             </div>
 
                             <div class="package-grid">
-                                <div class="package-card" data-package="Classic" onclick="selectAndCompare(this)">
+                                <div class="package-card" data-package="Classic" data-action="select-package">
                                     <div class="success-check">
                                         <i class="ph-fill ph-check-circle"></i>
                                     </div>
@@ -198,7 +206,7 @@
                                     <span class="p-desc">Static E-Invite</span>
                                     <span class="p-price">RM 49</span>
                                 </div>
-                                <div class="package-card active" data-package="Signature" onclick="selectAndCompare(this)">
+                                <div class="package-card active" data-package="Signature" data-action="select-package">
                                     <span class="p-badge">Most Popular</span>
                                     <div class="success-check">
                                         <i class="ph-fill ph-check-circle"></i>
@@ -207,7 +215,7 @@
                                     <span class="p-desc">Animated + RSVP</span>
                                     <span class="p-price">RM 99</span>
                                 </div>
-                                <div class="package-card" data-package="Bespoke" onclick="selectAndCompare(this)">
+                                <div class="package-card" data-package="Bespoke" data-action="select-package">
                                     <div class="success-check">
                                         <i class="ph-fill ph-check-circle"></i>
                                     </div>
@@ -247,7 +255,7 @@
 
                         <div class="form-group terms-group">
                             <input type="checkbox" id="termsCheck" required>
-                            <label for="termsCheck">I agree to the <a href="javascript:void(0)" onclick="openLegal('privacy')">Privacy Policy</a> & <a href="javascript:void(0)" onclick="openLegal('terms')">Terms</a></label>
+                            <label for="termsCheck">I agree to the <a href="#" data-action="open-legal" data-legal-type="privacy">Privacy Policy</a> & <a href="#" data-action="open-legal" data-legal-type="terms">Terms</a></label>
                         </div>
 
                         <div class="button-group">
@@ -278,7 +286,7 @@
     <!-- Template Preview Modal (View Only) -->
     <div id="previewModal" class="preview-overlay">
         <div class="preview-content">
-            <span class="close-preview" onclick="closePreview()">&times;</span>
+            <span class="close-preview" data-close-modal="previewModal">&times;</span>
             
             <div class="preview-header">
                 <h2 id="previewTitle">Template Preview</h2>
@@ -288,11 +296,11 @@
             <div class="package-selector">
                 <div class="package-header">
                     <label>Select Your Experience Package</label>
-                    <span class="compare-link" onclick="openCompare()">View Feature Comparison</span>
+                    <span class="compare-link" data-action="open-compare">View Feature Comparison</span>
                 </div>
 
                 <div class="package-grid">
-                    <div class="package-card" data-package="Classic" onclick="selectAndCompare(this)">
+                    <div class="package-card" data-package="Classic" data-action="select-package">
                         <div class="success-check">
                             <i class="ph-fill ph-check-circle"></i>
                         </div>
@@ -300,7 +308,7 @@
                         <span class="p-desc">Static E-Invite</span>
                         <span class="p-price">RM 49</span>
                     </div>
-                    <div class="package-card active" data-package="Signature" onclick="selectAndCompare(this)">
+                    <div class="package-card active" data-package="Signature" data-action="select-package">
                         <span class="p-badge">Most Popular</span>
                         <div class="success-check">
                             <i class="ph-fill ph-check-circle"></i>
@@ -309,7 +317,7 @@
                         <span class="p-desc">Animated + RSVP</span>
                         <span class="p-price">RM 99</span>
                     </div>
-                    <div class="package-card" data-package="Bespoke" onclick="selectAndCompare(this)">
+                    <div class="package-card" data-package="Bespoke" data-action="select-package">
                         <div class="success-check">
                             <i class="ph-fill ph-check-circle"></i>
                         </div>
@@ -325,11 +333,11 @@
             </div>
 
             <div class="preview-actions">
-                <button class="btn-preview-primary" onclick="bookFromPreview()">
+                <button class="btn-preview-primary" data-action="book-from-preview">
                     <i class="ph ph-shopping-cart"></i>
                     <span>Book This Template</span>
                 </button>
-                <a id="viewDemoBtn" href="javascript:void(0)" class="btn-preview-secondary" onclick="event.stopPropagation();">
+                <a id="viewDemoBtn" href="#" class="btn-preview-secondary">
                     <i class="ph ph-external-link"></i>
                     <span>Open Full Demo</span>
                 </a>
@@ -385,14 +393,14 @@
             <h2 id="successHeader">Request Received!</h2>
             <p>Your <strong><span id="confirmedTheme">Theme</span></strong> wedding details have been saved.</p>
             <p id="successMessage" class="sub-text">We are excited to help you create your dream wedding in Sabah. Our designer will contact you shortly.</p>
-            <button class="btn-close-success" onclick="closeSuccess()" aria-label="Close success message">Back to Themes</button>
+            <button class="btn-close-success" data-action="close-success" aria-label="Close success message">Back to Themes</button>
         </div>
     </div>
 
     <!-- Legal Modal (Privacy & Terms) -->
     <div id="legalModal" class="modal-overlay">
         <div class="modal-content legal-content">
-            <button class="close-button" aria-label="Close legal modal" onclick="closeLegal()">&times;</button>
+            <button class="close-button" aria-label="Close legal modal" data-close-modal="legalModal">&times;</button>
             
             <div class="modal-header">
                 <h2 id="legalTitle">Privacy Policy</h2>
@@ -437,7 +445,7 @@
 
     <!-- Package Comparison Modal -->
     <div id="compareModal" class="compare-overlay">
-        <button class="close-compare" aria-label="Close comparison modal" onclick="closeCompare()">&times;</button>
+        <button class="close-compare" aria-label="Close comparison modal" data-close-modal="compareModal">&times;</button>
         <div class="compare-content">
             <h3 class="compare-title">Package Comparison</h3>
 
@@ -528,7 +536,7 @@
                 </table>
             </div>
             
-            <button class="btn-got-it" onclick="closeCompare()">Got it!</button>
+            <button class="btn-got-it" data-close-modal="compareModal">Got it!</button>
         </div>
     </div>
 
@@ -545,6 +553,7 @@
     <!-- WhatsApp Floating Action Button -->
     <a href="https://wa.me/60162395689?text=Hi%20there!%20%F0%9F%91%8B%0A%0AI%20just%20saw%20your%20Sabah-inspired%20wedding%20e-invites%20and%20they%27re%20beautiful!%20%F0%9F%98%8D%0A%0AI%27m%20browsing%20your%20collection%20and%20would%20love%20to%20know%20more%20about%20your%20packages%20and%20availability.%20Could%20you%20share%20more%20details%3F%20%F0%9F%92%95"
        target="_blank"
+       rel="noopener noreferrer"
        class="whatsapp-fab"
        aria-label="Chat with us on WhatsApp">
         <i class="ph-fill ph-whatsapp-logo"></i>
