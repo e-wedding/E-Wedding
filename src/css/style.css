@@ -991,6 +991,37 @@ body.modal-open {
     margin-bottom: 20px;
 }
 
+.booking-contact-info {
+    text-align: center;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.booking-contact-info p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #495057;
+}
+
+.booking-contact-info a {
+    color: var(--beach-primary, #00B4D8);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.booking-contact-info a:hover {
+    color: var(--rainforest-green, #2D6A4F);
+    text-decoration: underline;
+}
+
+.booking-contact-info i {
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
 button {
     flex: 1;
     padding: 15px;
@@ -2265,5 +2296,63 @@ td:nth-child(4) {
 
     .confetti-icon {
         font-size: 3rem;
+    }
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+.site-footer {
+    margin-top: 60px;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-top: 1px solid #dee2e6;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-copyright {
+    color: #6c757d;
+    font-size: 0.875rem;
+    margin-bottom: 12px;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.footer-contact p {
+    color: #495057;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.footer-contact a {
+    color: var(--beach-primary, #00B4D8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: var(--rainforest-green, #2D6A4F);
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .site-footer {
+        margin-top: 40px;
+        padding: 30px 15px;
+    }
+
+    .footer-contact {
+        flex-direction: column;
+        gap: 8px;
     }
 }
